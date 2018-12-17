@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -11,12 +12,12 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<Pane prefHeight="312.0" prefWidth="439.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.172-ea" fx:controller="sample.Controller">
+<Pane prefHeight="312.0" prefWidth="542.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
          <children>
-            <GridPane layoutX="36.0" layoutY="40.0" prefHeight="227.0" prefWidth="382.0">
+            <GridPane layoutX="36.0" layoutY="40.0" prefHeight="227.0" prefWidth="492.0">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="182.0" minWidth="10.0" prefWidth="127.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="253.0" minWidth="10.0" prefWidth="253.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.0" minWidth="10.0" prefWidth="90.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="345.0" minWidth="10.0" prefWidth="345.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -27,28 +28,31 @@
               </rowConstraints>
                <children>
                   <Label text="Znaky pro generator" />
-                  <TextField GridPane.columnIndex="1" />
+                  <TextField fx:id="tf_vstupniZnaky" prefHeight="26.0" prefWidth="308.0" GridPane.columnIndex="1" />
                   <Label text="Počet znaků" GridPane.rowIndex="1" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="tf_vygenerovaneHeslo" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <Label text="Vygenerované heslo:" GridPane.rowIndex="3" />
                   <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                        <Button mnemonicParsing="false" text="Vycisti">
+                        <Button fx:id="bt_vycisti" mnemonicParsing="false" onAction="#setClear" text="Vycisti">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Konec">
+                        <Button fx:id="bt_konec" onAction="#closeWindow" mnemonicParsing="false" text="Konec">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Generuj">
+                        <Button fx:id="bt_generuj" mnemonicParsing="false" onAction="#getHeslo" text="Generuj">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </HBox.margin>
                         </Button>
                   </HBox>
-            <ComboBox fx:id="cb_pocetZnaku" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Spinner fx:id="sp_pocetZnaku" prefHeight="26.0" prefWidth="106.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor></Spinner>
                </children>
             </GridPane>
          </children>
